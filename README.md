@@ -49,7 +49,7 @@ Initialize in your Activity or Fragment:
 
 
 
-### Configurations:
+### Configurations Example:
 
 dragAndDrop
 
