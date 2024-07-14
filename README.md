@@ -20,13 +20,12 @@
 ### Installation:
   To integrate MyCustomizeRecyclerView into your Android project add the library dependency to your app module's build.gradle:
 
+```
+dependencies {
+    implementation(project(":MyCustomizeRecycleViewLibrary"))
+}
 
-
-
-  ![image](https://github.com/user-attachments/assets/8a6d0486-b942-4532-b12f-968d6b2a2492)
-
-
-
+```
 
 ### Usage:
 Add MyCustomizeRecyclerView to your layout XML:
