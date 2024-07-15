@@ -67,7 +67,6 @@ public class MainActivity extends AppCompatActivity {
 
 ```java
 // Configure RecyclerView
-        // Configure RecyclerView
         myRecyclerView.addLinearLayoutManager(true); // LinearLayoutManager, vertical
 
         myRecyclerView.addDividerItemDecoration(true); // DividerItemDecoration, vertical
@@ -75,6 +74,7 @@ public class MainActivity extends AppCompatActivity {
         myRecyclerView.addItemAnimation(300); // Item animations with duration 300ms
 
         myRecyclerView.addGridLayoutManager(true, 2);
+        
 
 ```
 
