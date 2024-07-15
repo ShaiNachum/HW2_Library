@@ -7,6 +7,7 @@
   RecyclerView setup and enhances functionality with built-in support for pagination, item
   animations, drag-and-drop, swipe gestures, and various layout managers.
 
+
 ### Features:
   * Pagination Support: Easily implement pagination in RecyclerViews with a listener interface.
   * Item Animations: Add smooth animations to RecyclerView item changes.
@@ -17,6 +18,7 @@
   * Item Decoration: Optional divider item decoration for better visual separation.
   * State Saving: Save and restore RecyclerView scroll position across configuration changes.
 
+
 ### Installation:
   To integrate MyCustomizeRecyclerView into your Android project add the library dependency to your app module's build.gradle:
 
@@ -26,6 +28,7 @@ dependencies {
 }
 
 ```
+
 
 ### Usage:
 Add MyCustomizeRecyclerView to your layout XML:
@@ -166,6 +169,12 @@ Restore Scroll Position
     }
 ```
 
+
+### Video Example:
+
+https://github.com/user-attachments/assets/6a7bc67d-8122-4e61-9fb5-85f97fe920eb
+
+
 ### License:
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
@@ -178,14 +187,6 @@ distributed under the License is distributed on an "AS IS" BASIS,
 WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
-
-### Video Example:
-
-https://github.com/user-attachments/assets/6a7bc67d-8122-4e61-9fb5-85f97fe920eb
-
-
-
-### License:
 
 
 
