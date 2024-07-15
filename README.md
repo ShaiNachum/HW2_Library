@@ -20,83 +20,154 @@
 ### Installation:
   To integrate MyCustomizeRecyclerView into your Android project add the library dependency to your app module's build.gradle:
 
+```java
+dependencies {
+    implementation(project(":MyCustomizeRecycleViewLibrary"))
+}
 
-
-
-  ![image](https://github.com/user-attachments/assets/8a6d0486-b942-4532-b12f-968d6b2a2492)
-
-
-
+```
 
 ### Usage:
 Add MyCustomizeRecyclerView to your layout XML:
 
-
-
-
-![image](https://github.com/user-attachments/assets/295770eb-5d9a-48cd-be63-effc2af2fcab)
-
-
-
+```xml
+    <com.example.mycustomizerecycleviewlibrary.MyCustomizeRecyclerView
+        android:id="@+id/myRecyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+```
 
 Initialize in your Activity or Fragment:
 
+```java
+public class MainActivity extends AppCompatActivity {
+    private MyCustomizeRecyclerView myRecyclerView;
+    private MyAdapter myAdapter;
+    private List<String> testList;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
+        myRecyclerView = findViewById(R.id.myRecyclerView);
+
+        // Prepare data
+        testList = new ArrayList<>();
+
+        // Set up adapter
+        myAdapter = new MyAdapter(testList);
+        myRecyclerView.setAdapter(myAdapter);
+        
+    }
+```
 
 
+### Configurations Example:
 
-![image](https://github.com/user-attachments/assets/a9039d6c-828c-464b-9876-a8197537c9e8)
+```java
+// Configure RecyclerView
+        myRecyclerView.addLinearLayoutManager(true); // LinearLayoutManager, vertical
 
+        myRecyclerView.addDividerItemDecoration(true); // DividerItemDecoration, vertical
 
+        myRecyclerView.addItemAnimation(300); // Item animations with duration 300ms
 
-
-### Configurations:
+```
 
 dragAndDrop
 
+```java
+ // Add drag-and-drop support
+        ItemTouchHelper.Callback dragAndDropCallback = new ItemTouchHelper.SimpleCallback(ItemTouchHelper.UP | ItemTouchHelper.DOWN, 0) {
+            @Override
+            public boolean onMove(RecyclerView recyclerView, RecyclerView.ViewHolder viewHolder, RecyclerView.ViewHolder target) {
+                int fromPosition = viewHolder.getAdapterPosition();
+                int toPosition = target.getAdapterPosition();
+                String movedItem = testList.remove(fromPosition);
+                testList.add(toPosition, movedItem);
+                myAdapter.notifyItemMoved(fromPosition, toPosition);
+                return true;
+            }
 
+            @Override
+            public void onSwiped(RecyclerView.ViewHolder viewHolder, int direction) {
+                // Do nothing
+            }
+        };
+        myRecyclerView.addDragAndDropSupport(dragAndDropCallback);
 
-
-![image](https://github.com/user-attachments/assets/bd1a84b9-829b-474b-8784-bb515afeaa08)
-
-
-
+```
 
 Swipe Gestures
 
+```java
+// Add swipe gestures
+        ItemTouchHelper.SimpleCallback swipeCallback = new ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.LEFT | ItemTouchHelper.RIGHT) {
+            @Override
+            public boolean onMove(RecyclerView recyclerView, RecyclerView.ViewHolder viewHolder, RecyclerView.ViewHolder target) {
+                return false;
+            }
 
-
-
-![image](https://github.com/user-attachments/assets/59bdff77-8c7d-4547-8263-280025407bdf)
-
-
-
+            @Override
+            public void onSwiped(RecyclerView.ViewHolder viewHolder, int direction) {
+                int position = viewHolder.getAdapterPosition();
+                testList.remove(position);
+                myAdapter.notifyItemRemoved(position);
+            }
+        };
+        myRecyclerView.addSwipeGestures(swipeCallback);
+```
 
 Pagination Support
 
-
-
-
-![image](https://github.com/user-attachments/assets/8e266381-a1dc-4f05-aff9-e424b0af92b9)
-
-
-
+```java
+// Add pagination support
+        myRecyclerView.addPaginationSupport(new MyUtilities.PaginationListener() {
+            @Override
+            public void loadMoreItems() {
+                // Load next page of data
+                loadNextPage();
+            }
+            @Override
+            public boolean isLoading() {
+                return isLoading;
+            }
+            @Override
+            public boolean isLastPage() {
+                return isLastPage;
+            }
+        });
+```
 
 Save Scroll Position
 
-
-
-
-![image](https://github.com/user-attachments/assets/cc8f99c7-fa56-4ab9-8df8-28e0aaf6694b)
-
-
+```java
+@Override
+    protected void onPause() {
+        super.onPause();
+        recyclerViewState = myRecyclerView.saveScrollPosition();
+    }
+```
 
 
 Restore Scroll Position
 
+```java
+@Override
+    protected void onResume() {
+        super.onResume();
+        if (recyclerViewState != null) {
+            myRecyclerView.restoreScrollPosition(recyclerViewState);
+        }
+    }
+```
+
+### Video Example:
+
+https://github.com/user-attachments/assets/6a7bc67d-8122-4e61-9fb5-85f97fe920eb
 
 
-
-![image](https://github.com/user-attachments/assets/04bad052-f287-4957-aec9-b068d552b6ad)
 
 ### License:
 
