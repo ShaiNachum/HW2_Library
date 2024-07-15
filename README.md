@@ -73,7 +73,7 @@ public class MainActivity extends AppCompatActivity {
 
         myRecyclerView.addItemAnimation(300); // Item animations with duration 300ms
 
-        myRecyclerView.addGridLayoutManager(true, 2);
+        myRecyclerView.addGridLayoutManager(true, 2); // Set grid layout
         
 
 ```
