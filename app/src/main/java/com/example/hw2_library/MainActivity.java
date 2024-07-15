@@ -47,6 +47,7 @@ public class MainActivity extends AppCompatActivity {
 
         myRecyclerView.addItemAnimation(300); // Item animations with duration 300ms
 
+
         // Add drag-and-drop support
         ItemTouchHelper.Callback dragAndDropCallback = new ItemTouchHelper.SimpleCallback(ItemTouchHelper.UP | ItemTouchHelper.DOWN, 0) {
             @Override
@@ -89,12 +90,10 @@ public class MainActivity extends AppCompatActivity {
                 // Load next page of data
                 loadNextPage();
             }
-
             @Override
             public boolean isLoading() {
                 return isLoading;
             }
-
             @Override
             public boolean isLastPage() {
                 return isLastPage;

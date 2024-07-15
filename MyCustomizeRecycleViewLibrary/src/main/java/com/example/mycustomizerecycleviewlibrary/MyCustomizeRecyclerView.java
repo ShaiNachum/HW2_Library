@@ -63,11 +63,6 @@ public class MyCustomizeRecyclerView extends RecyclerView{
         setLayoutManager(gridLayoutManager);
     }
 
-    public void addStaggeredGridLayoutManager(boolean isVertical, int spanCount) {
-        if (spanCount <= 0) return;
-        StaggeredGridLayoutManager staggeredGridLayoutManager = new StaggeredGridLayoutManager(spanCount, getOrientation(isVertical));
-        setLayoutManager(staggeredGridLayoutManager);
-    }
 
     public Parcelable saveScrollPosition() {
         if (getLayoutManager() == null)

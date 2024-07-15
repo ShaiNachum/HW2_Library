@@ -40,7 +40,7 @@ public class MyUtilities {
                 super.onScrolled(recyclerView, dx, dy);
                 if (recyclerView.getLayoutManager() instanceof LinearLayoutManager) {
                     LinearLayoutManager layoutManager = (LinearLayoutManager) recyclerView.getLayoutManager();
-                    int visibleItemCount = layoutManager.getChildCount();
+                    //int visibleItemCount = layoutManager.getChildCount();
                     int totalItemCount = layoutManager.getItemCount();
                     int lastVisibleItemPosition = layoutManager.findLastVisibleItemPosition();
 
