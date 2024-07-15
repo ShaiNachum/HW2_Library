@@ -47,6 +47,8 @@ public class MainActivity extends AppCompatActivity {
 
         myRecyclerView.addItemAnimation(300); // Item animations with duration 300ms
 
+        myRecyclerView.addGridLayoutManager(true, 2);
+
 
         // Add drag-and-drop support
         ItemTouchHelper.Callback dragAndDropCallback = new ItemTouchHelper.SimpleCallback(ItemTouchHelper.UP | ItemTouchHelper.DOWN, 0) {
